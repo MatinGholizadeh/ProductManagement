@@ -1,5 +1,6 @@
-using ProdManagement.Application.Common.Settings;
 using ProdManagement.Infrastructure;
+using ProdManagement.Infrastructure.Extensions;
+using ProdManagement.Application.Common.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +46,8 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+// Auto apply pending migrations on startup
+await app.MigrateDatabaseAsync();
 
 if (app.Environment.IsDevelopment())
 {
