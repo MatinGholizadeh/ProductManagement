@@ -1,19 +1,20 @@
-﻿using System.Text;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Configuration;
-using ProdManagement.Domain.Entities.User;
 using Microsoft.Extensions.DependencyInjection;
-using ProdManagement.Infrastructure.Persistence;
+using Microsoft.IdentityModel.Tokens;
+using ProdManagement.Application.Abstractions.Authentication;
+using ProdManagement.Application.Abstractions.Persistence;
+using ProdManagement.Application.Common.Mappings;
 using ProdManagement.Application.Common.Settings;
-using ProdManagement.Infrastructure.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ProdManagement.Application.Features.Users.Login;
 using ProdManagement.Application.Features.Users.Register;
-using ProdManagement.Application.Abstractions.Persistence;
+using ProdManagement.Domain.Entities.User;
+using ProdManagement.Infrastructure.Authentication;
+using ProdManagement.Infrastructure.Persistence;
 using ProdManagement.Infrastructure.Persistence.Repository;
-using ProdManagement.Application.Abstractions.Authentication;
+using System.Text;
 
 namespace ProdManagement.Infrastructure;
 
@@ -46,6 +47,14 @@ public static class DependencyInjection
 
         #endregion Persistence - End
 
+        #region AutoMapper
+
+        services.AddAutoMapper(cfg => {
+            cfg.AddProfile<ProductProfile>();
+        });
+
+        #endregion AutoMapper - End
+
         #region MediatR
 
         services.AddMediatR(cfg =>
@@ -55,6 +64,7 @@ public static class DependencyInjection
         });
 
         #endregion MediatR - End
+
 
         #region Authentication & JWT
 
