@@ -14,4 +14,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProductManagement.Application\ProductManagement.Application.csproj" />
+    <ProjectReference Include="..\ProductManagement.Domain\ProductManagement.Domain.csproj" />
+    <ProjectReference Include="..\ProductManagement.Infrastructure\ProductManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

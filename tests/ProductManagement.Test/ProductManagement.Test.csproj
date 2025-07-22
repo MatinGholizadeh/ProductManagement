@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\ProductManagement.Application\ProductManagement.Application.csproj" />
+    <ProjectReference Include="..\..\src\ProductManagement.Infrastructure\ProductManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\ProductManagement.Presentation\ProductManagement.Presentation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
