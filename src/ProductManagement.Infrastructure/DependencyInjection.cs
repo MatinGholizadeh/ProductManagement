@@ -65,7 +65,6 @@ public static class DependencyInjection
 
         #endregion MediatR - End
 
-
         #region Authentication & JWT
 
         // Configure strongly typed settings object
